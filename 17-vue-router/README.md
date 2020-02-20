@@ -43,12 +43,33 @@
 ![](./images/router-link.png)
 ![](./images/linkActiveClass.png)
 
-### 四、动态路由
+## 四、动态路由
 
 path路径里面有参数（path路径不确定），称为动态路由。示例： `/user/:id`
 
-- $router    new VueRouter()的实例对象
-- $route     当前谁处于活跃状态，拿到的就是当前活跃路由
+- $router 是指new VueRouter()的实例对象
+- $route  是指  当前谁处于活跃状态，拿到的就是当前活跃路由
+  
+  - 页面接收来源url路径的的参数，`$route.params.id`
+  
+## 五、路由的懒加载
+
+1、定义：
+
+  - 把不同路由对于的组件分割成不同的代码块，然后当路由被访问的时候才加载对应的组件
+
+2、作用：
+    
+   - 将路由对应的组件打包成一个个的js代码块
+   - 只有在路由被访问到的时候，才加载对应的组件
+   
+3、使用：
+
+  - 推荐 `const home = () => import('./components/Home')`
+
+![](./images/lazy.png)
+
+   
 
 
 

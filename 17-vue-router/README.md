@@ -1,4 +1,4 @@
-#(十七)vue-router
+# (十七)vue-router
 ## 一、路由两种模式 Hash History
 
 1、浏览器URL改变方式

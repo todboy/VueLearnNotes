@@ -2,16 +2,21 @@
   <div id="app">
     <!-- 1 router link属性配置 -->
     <!--<router-link to="/home" tag="button" replace>Home</router-link>-->
-    <!--<router-link to="about" tag="button" replace>About</router-link>-->
+    <!--<router-link to="/about" tag="button" replace>About</router-link>-->
 
     <!--<router-link to="/home" tag="button" replace active-class="active">Home</router-link>-->
-    <!--<router-link to="about" tag="button" replace active-class="active">About</router-link>-->
+    <!--<router-link to="/about" tag="button" replace active-class="active">About</router-link>-->
 
     <!-- 2 路由代码跳转 -->
-    <button @click="homeClick">Home</button>
-    <button @click="aboutClick">About</button>
+    <!--<button @click="homeClick">Home</button>-->
+    <!--<button @click="aboutClick">About</button>-->
 
     <!-- 3 router动态配置 -->
+    <router-link to="/home"  >Home</router-link>
+    <router-link to="/about" >About</router-link>
+    <router-link to="/user/test" >User</router-link>
+    <router-link :to="/user/ + userId" >User</router-link>
+
     <router-view/>
   </div>
 </template>
@@ -19,6 +24,11 @@
 <script>
   export default {
     name: 'App',
+    data() {
+      return {
+        userId: "xxxxx"
+      }
+    },
     methods: {
       homeClick() {
         // 通过代码方式修改路由

@@ -38,7 +38,7 @@
 - 默认是Hash模式，使用mode改变url路径，比如 `mode: 'history'`
 
 
-##三、router-link 属性配置
+## 三、router-link 属性配置
 
 ![](./images/router-link.png)
 ![](./images/linkActiveClass.png)
@@ -48,7 +48,7 @@
 path路径里面有参数（path路径不确定），称为动态路由。示例： `/user/:id`
 
 - $router    new VueRouter()的实例对象
-- $route     当前谁处于活跃状态，拿到的就是当前route
+- $route     当前谁处于活跃状态，拿到的就是当前活跃路由
 
 
 

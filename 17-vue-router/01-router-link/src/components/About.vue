@@ -1,6 +1,6 @@
 <template>
   <div>
-    这个是关于页面
+    <p>这个是关于页面</p>
     <p>哈哈哈哈</p>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    用户模块: {{$route.params.id}}
+    <p>用户模块: {{$route.params.id}}</p>
   </div>
 </template>
 

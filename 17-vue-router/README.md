@@ -70,4 +70,57 @@ path路径里面有参数（path路径不确定），称为动态路由。示例
 
 ![](./images/router-params.png)
 
+## 八、导航守卫
 
+例如：每个路由页面的title显示
+
+1)、index.js页面添加元数据
+```shell
+  // 元数据（描述数据的数据）
+  meta: {
+    title: "首页"
+  }
+```
+2)、main.js设置路由标题
+
+```shell
+  // 根据路由设置标题
+  router.beforeEach((to, from, next) => {
+    // 路由发生改变修改页面的title
+    document.title = to.matched[0].meta.title
+    next();
+  })
+```
+
+1、全局守卫
+
+- router.beforeEach 
+- router.afterEach 
+
+2、路由独享守卫
+
+3、组件内守卫
+
+详细参考官网：https://router.vuejs.org/zh/guide/advanced/navigation-guards.html
+
+
+## 九、路由的keep-alive使用
+
+keep-alive是Vue内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染
+
+它有两个重要属性
+
+- include - 字符串或正则表达式，只有匹配的组件会被缓存
+
+- exclude - 字符串或正则表达式，任何匹配的组件都不会被缓存
+
+
+```shell
+    // 这两个函数只有在使用keep-alive时，才是有效的
+    activated() {
+
+    },
+    deactivated() {
+
+    }
+```

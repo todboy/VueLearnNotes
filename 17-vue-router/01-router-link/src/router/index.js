@@ -25,12 +25,16 @@ export default new Router({
     {
       path: '/home',
       component: Home,
+      // 元数据（描述数据的数据）
+      meta: {
+        title: "首页"
+      },
       // 子路由，演示嵌套路由使用
       children: [
-        {
-          path: "",
-          redirect: "new"
-        },
+        // {
+        //   path: "",
+        //   redirect: "new"
+        // },
         {
           path: "new",
           component: HomeNew
@@ -43,17 +47,27 @@ export default new Router({
     },
     {
       path: '/about',
-      component: About
+      component: About,
+      meta: {
+        title: "关于"
+      }
     },
     {
       path: '/user/:id',
-      component: User
+      component: User,
+      meta: {
+        title: '用户'
+      }
     },
     {
       path: '/userInfo',
-      component: UserInfo
+      component: UserInfo,
+      meta: {
+        title: '档案'
+      }
     }
   ],
   mode: 'history',
   linkActiveClass: "active"
 })
+

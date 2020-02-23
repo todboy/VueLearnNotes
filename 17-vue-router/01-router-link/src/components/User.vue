@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>用户模块: {{$route.params.id}}</p>
+    <p>{{userId}}</p>
   </div>
 </template>
 
@@ -10,6 +11,11 @@
     data() {
       return {
 
+      }
+    },
+    computed: {
+      userId() {
+        return this.$route.params.id
       }
     }
   }

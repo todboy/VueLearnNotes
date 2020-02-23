@@ -26,7 +26,12 @@
     <button @click="userClick">User</button>
     <button @click="userInfoClick">UserInfo</button>
 
-    <router-view/>
+    <!--
+      keep-alive使用， 两个重要属性include和exclude
+     -->
+    <keep-alive exclude="UserInfo">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

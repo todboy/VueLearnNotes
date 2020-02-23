@@ -12,6 +12,7 @@ const HomeMessage = () => import("@/components/HomeMessage")
 
 const About = () => import('@/components/About')
 const User = () => import('@/components/User')
+const UserInfo = () => import('@/components/UserInfo')
 
 Vue.use(Router)
 
@@ -47,6 +48,10 @@ export default new Router({
     {
       path: '/user/:id',
       component: User
+    },
+    {
+      path: '/userInfo',
+      component: UserInfo
     }
   ],
   mode: 'history',

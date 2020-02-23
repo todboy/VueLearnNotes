@@ -15,7 +15,16 @@
     <router-link to="/home"  >Home</router-link>
     <router-link to="/about" >About</router-link>
     <router-link to="/user/test" >User</router-link>
-    <router-link :to="/user/ + userId" >User</router-link>
+
+    <!--
+      4 router参数传递
+      (1) params: path 路径上面传入参数
+      (2) query:  query关键字传递参数
+     -->
+    <!--<router-link :to="/user/ + userId" >User</router-link>-->
+    <!--<router-link :to="{path: '/userInfo', query:{name: 'Jack', age: 25}}">UserInfo</router-link>-->
+    <button @click="userClick">User</button>
+    <button @click="userInfoClick">UserInfo</button>
 
     <router-view/>
   </div>
@@ -38,6 +47,18 @@
       aboutClick() {
         // this.$router.push("/about")
         this.$router.replace("/about")
+      },
+      userClick() {
+        this.$router.push("/user/"+this.userId)
+      },
+      userInfoClick() {
+        this.$router.push({
+          path: '/userInfo',
+          query: {
+            name: 'Lack',
+            age: 30
+          }
+        })
       }
     }
   }

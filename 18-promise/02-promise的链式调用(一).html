@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        // Promise 链式编程
+        // 入参: (resove, reject) 两个参数本身又都是函数
+        new Promise((resolve, reject) => {
+
+            // 第一次发送网络请求
+            setTimeout(() => {
+                resolve()
+            }, 1000)
+
+        }).then(res => {
+
+            // 第一次结果处理
+            console.log("first result handler")
+
+            return new Promise((resolve, reject) => {
+                // 第二次发送网络请求
+                setTimeout(() => {
+                    resolve()
+                }, 1000)
+            })
+        }).then(res => {
+
+            // 第二次结果处理
+            console.log("second result handler")
+
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 一个业务需要发送多次请求才可以完成
+
+        // 第一种写法示列
+        // var result1 = false
+        // var result2 = false
+        // $.ajax({
+        //     url: "url1",
+        //     success: function (data) {
+        //         console.log("result1")
+        //         result1 = true
+        //         handlerResult()
+        //     }
+        // })
+        // $.ajax({
+        //     url: "url2",
+        //     success: function (data) {
+        //         console.log("result2")
+        //         result2 = true
+        //         handlerResult()
+        //     }
+        // })
+        //
+        // function handlerResult() {
+        //     if(result1 && result2) {
+        //         console.log("success")
+        //     }
+        // }
+        
+        
+        // 第二种写法示列
+        // Promise方式实现
+        Promise.all([
+            new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    // resolve("result1")
+                    resolve({name: "Jack", age: 23})
+                }, 1000)
+            }),
+            new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    // resolve("result2")
+                    resolve({name: "Tom", age: 28})
+                }, 1000)
+            })
+        ]).then(results => {
+            console.log(results)
+        })
+    </script>
+</body>
+</html>

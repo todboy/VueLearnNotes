@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // wrapped into
+        // 第一种写法示列
+        // new Promise((resolve, reject) => {
+        //
+        //     // 第一次发送网络请求，异步
+        //     setTimeout(() => {
+        //         resolve("aaa")
+        //     }, 1000)
+        //
+        // }).then(res => {
+        //
+        //     // 第一次结果处理
+        //     console.log(res, ", first result handler")
+        //
+        //     return new Promise((resolve, reject) => {
+        //         // 第二次发送网络请求，非异步
+        //         resolve(res+"111")
+        //     })
+        // }).then(res => {
+        //
+        //     // 第二次结果处理
+        //     console.log(res, ", second result handler")
+        //
+        //     return new Promise(resolve => {
+        //         // 第三次发送网络请求，非异步
+        //         resolve(res+"222")
+        //     })
+        // }).then(res => {
+        //
+        //     // 第三次结果处理
+        //     console.log(res, ", third result handler")
+        //
+        // })
+        
+        // new Promise(resolve => resolve(结果)) 简写
+        // 第二种写法示列，简写
+        // new Promise((resolve, reject) => {
+        //
+        //     // 第一次发送网络请求，异步
+        //     setTimeout(() => {
+        //         resolve("aaa")
+        //     }, 1000)
+        //
+        // }).then(res => {
+        //     // 第一次结果处理
+        //     console.log(res, ", first result handler")
+        //
+        //     // 第二次发送网络请求，非异步
+        //     return Promise.resolve(res + "111")
+        // }).then(res => {
+        //     // 第二次结果处理
+        //     console.log(res, ", second result handler")
+        //
+        //     // 第三次发送网络请求，非异步
+        //     return Promise.resolve(res + "222")
+        // }).then(res => {
+        //     // 第三次结果处理
+        //     console.log(res, ", third result handler")
+        // })
+
+        // 省略Promise.resolve
+        // 第三种写法示列，最简写法
+        // new Promise((resolve, reject) => {
+        //     // 第一次发送网络请求，异步
+        //     setTimeout(() => {
+        //         resolve("aaa")
+        //     }, 1000)
+        // }).then(res => {
+        //     // 第一次结果处理
+        //     console.log(res, ", first result handler")
+        //
+        //     // 第二次发送网络请求，非异步
+        //     return res + "111"
+        // }).then(res => {
+        //     // 第二次结果处理
+        //     console.log(res, ", second result handler")
+        //
+        //     // 第三次发送网络请求，非异步
+        //     return res + "222"
+        // }).then(res => {
+        //     // 第三次结果处理
+        //     console.log(res, ", third result handler")
+        // })
+        
+        // 异常处理
+        new Promise((resolve, reject) => {
+            // 第一次发送网络请求，异步
+            setTimeout(() => {
+                resolve("aaa")
+            }, 1000)
+        }).then(res => {
+            // 第一次结果处理
+            console.log(res, ", first result handler")
+
+            // 第二次发送网络请求，非异步，抛异常
+            // return Promise.reject("error message")
+            throw "throw error message"
+        }).then(res => {
+            // 第二次结果处理
+            console.log(res, ", second result handler")
+
+            // 第三次发送网络请求，非异步
+            return Promise.resolve(res + "222")
+        }).then(res => {
+            // 第三次结果处理
+            console.log(res, ", third result handler")
+        }).catch(err => {
+            console.log(err)
+        })
+    </script>
+</body>
+</html>

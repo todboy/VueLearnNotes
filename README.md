@@ -18,4 +18,7 @@ Vue学习笔记
 - [15-webpack](15-webpack/README.md)
 - [16-vue-cli](16-vue-cli/README.md)
 - [17-vue-router](17-vue-router/README.md)
+- [18-promise](18-promise/README.md)
+- [19-vuex](19-vuex/README.md)
+- [20-axios](20-axios/README.md)
 

@@ -1,19 +1,8 @@
 # 21-mall
 
-## Project setup
-```
-npm install
-```
+## 项目搭建步骤
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 划分目录结构
+- 引用两个css文件
+- vue.config.js和.editorconfig
+- 项目的模块划分：tabbar -> 路由映射关系

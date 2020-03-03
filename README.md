@@ -22,3 +22,6 @@ Vue学习笔记
 - [19-vuex](19-vuex/README.md)
 - [20-axios](20-axios/README.md)
 
+
+学习笔记推荐
+- https://www.yuque.com/liaoyuanyang/web/vue#aPPgQ

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // 2 对象操作
+        const app = new Vue({
+            el: "#app",
+            data: {
+            },
+            methods: {
+                /**
+                 * 添加一个属性
+                 */
+                method3() {
+                    let a = {age: 18, id: 10};
+                    // 把 name 属性，放到对象中
+                    let c = {name: 'zhh', ...a};
+                    console.log(c);
+                    //  打印结果  {name: "zhh", age: 18, id: 10}
+                },
+
+                /**
+                 * 修改一个属性
+                 */
+                method2() {
+                    let a = {name: 'zhh', age: 18, id: 10};
+                    //先拿到a, 后面的name:zhh1,把 a 中name 的值替换掉了
+                    let c = {...a, name: 'zhh1'};
+                    console.log(c);
+                    // 打印结果  {name: "zhh1", age: 18, id: 10}
+                },
+
+                /**
+                 * 删除一个属性（拿出属性或者对象）
+                 */
+                method1() {
+                    let a = {name: 'zhh', age: 18, id: 10};
+                    let {name, ...c} = a;
+                    console.log(name, c);
+                    //  打印结果 zhh {age: 18, id: 10}
+                }
+            }
+        })
+    </script>
+</body>
+</html>

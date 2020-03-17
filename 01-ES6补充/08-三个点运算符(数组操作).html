@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // 1 数组操作
+        const app = new Vue({
+            el: "#app",
+            data: {
+            },
+            methods: {
+                /**
+                 * 把数组中的元素孤立起来
+                 */
+                iClick() {
+                    let iArray = ['1', '2', '3'];
+                    console.log(...iArray);
+                    // 打印结果  1 2 3
+                },
+
+                /**
+                 * 在数组中添加元素
+                 */
+                iClick3() {
+                    let iArray = ['1', '2', '3'];
+                    console.log(['0', ...iArray, '4']);
+                    // 打印结果  ["0", "1", "2", "3", "4"]
+                },
+
+                /**
+                 * 在数组中删除元素（取出一个元素）
+                 * 与结构赋值的结合
+                 * 如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错。
+                 */
+                iClick8() {
+                    const [first, ...rest] = [1, 2, 3, 4, 5];
+                    console.log(first);
+                    // 打印结果 1
+                    console.log([...rest]);
+                    // 打印结果 [2, 3, 4, 5]
+
+                    const [one, ...last] = ["foo"];
+                    console.log(one);
+                    //打印结果 foo
+                    console.log([...last]);
+                    //打印结果 []
+                },
+
+                /**
+                 * 数组的合并
+                 */
+                iClick6() {
+                    // ES6 的写法
+                    var arr1 = [0, 1, 2];
+                    var arr2 = [3, 4, 5];
+                    arr1.push(...arr2);
+                    console.log(arr1);
+                    //  打印结果 [0, 1, 2, 3, 4, 5]
+                },
+
+                /**
+                 * 数组的合并（推荐使用）
+                 */
+                iClick7() {
+                    var arr1 = [0, 1, 2];
+                    var arr2 = [3, 4, 5];
+                    console.log([...arr1, ...arr2]);
+                    //  打印结果 [0, 1, 2, 3, 4, 5]
+                },
+
+                /**
+                 * 将字符串转成数组
+                 */
+                iClick9() {
+                    let iString = 'woshizhongguoren';
+                    console.log([...iString]);
+                    //  打印结果 ["w", "o", "s", "h", "i", "z", "h", "o", "n", "g", "g", "u", "o", "r", "e", "n"]
+                },
+
+                /**
+                 * Map 和 Set 结构， Generator 函数
+                 */
+                iClick10() {
+                    let map = new Map([
+                        [1, 'one'],
+                        [2, 'two'],
+                        [3, 'three'],
+                    ]);
+                    let arr = [...map.keys()];
+                    console.log(arr);
+                    //  打印结果 [1, 2, 3]
+                },
+
+                /**
+                 * 当做参数传递
+                 * 和直接传数组的区别
+                 */
+                iClick4() {
+                    let iArray = ['1', '2', '3'];
+                    //注意传的时候，就要三个点
+                    this.hanshu(...iArray);
+                },
+                hanshu(...iArray) {
+                    let ooo = 1;
+                    console.log(...iArray);
+                    //  打印结果 1 2 3
+                },
+
+                /**
+                 * 求出最大值
+                 */
+                iClick5() {
+                    let iArray = [1, 2, 3, 99, 44, 66, 21, 85, 77];
+                    let ooo = Math.max(...iArray);
+                    console.log(ooo);
+                    //  打印结果 99
+                },
+
+                /**
+                 * 如果对没有iterator接口的对象，使用扩展运算符，将会报错。
+                 */
+                iClick11() {
+                    let obj = {
+                        name: 'zhh',
+                        age: '20'
+                    }
+                    console.log([...obj]);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
